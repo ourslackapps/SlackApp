@@ -54,7 +54,7 @@ populateConversationStore();
 
 app.message("#", async ({ message, say }) => {
   console.log(
-    " Complete message is text is " +
+    " Complete message is text is --------" +
       message.text +
       " permalink is " +
       message.channel
