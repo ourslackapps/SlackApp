@@ -20,6 +20,13 @@ const app = new App({
   signingSecret: process.env.SLACK_SIGNING_SECRET
 });
 
+//test TBD
+// Listens to incoming messages that contain "goodbye"
+app.message('goodbye', async ({ message, say }) => {
+  // say() sends a message to the channel where the event was triggered
+  await say(`See ya later, <@${message.user}> :wave:`);
+});
+
 // You probably want to use a database to store any conversations information ;)
 let conversationsStore = {};
 
@@ -46,7 +53,7 @@ function saveConversations(conversationsArray) {
 
     // Store the channel id and corresponding channel name
     conversationsStore[conversationId] = conversationName;
-    console.log(" conversation ---" + conversationId, conversationName);
+    console.log(" ^^^^^^^^conversation ---" + conversationId, conversationName);
   });
 }
 
